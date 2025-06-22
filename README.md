@@ -7,9 +7,8 @@ This is a professional portfolio for **Muhammad Abdullahi Jibrin**, a Full-Stack
 ---
 
 ## 🚀 Live Demo
-👉 [Click to view the portfolio](https://<your-username>.github.io/<repository-name>)
+👉 [Click to view the portfolio](https://majibrin.github.io/portfolio)
 
-Replace `<your-username>` and `<repository-name>` with your GitHub name and repo.
 
 ---
 
