@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Abdullahi Jibrin - Web Developer CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .cv-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cv-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .contact-item i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .cv-body {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            min-height: 600px;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #34495e 0%, #2c3e50 100%);
+            color: #ecf0f1;
+            padding: 40px 30px;
+        }
+
+        .main-content {
+            padding: 40px;
+            background: #fff;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar .section-title {
+            color: #fff;
+            border-bottom-color: #ecf0f1;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .skill-category {
+            margin-bottom: 25px;
+        }
+
+        .skill-category h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #ecf0f1;
+            font-weight: 600;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .skill-bar {
+            width: 100px;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .language-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .summary {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .project {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .project h4 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .project .tech-stack {
+            font-size: 0.85rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+        }
+
+        .education-item h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #ecf0f1;
+        }
+
+        .education-item .institution {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            margin-bottom: 3px;
+        }
+
+        .education-item .year {
+            font-size: 0.85rem;
+            color: #95a5a6;
+        }
+
+        .soft-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .soft-skill {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 12px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .cv-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: 2;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .cv-container {
+                margin: 10px;
+            }
+
+            body {
+                padding: 10px;
+            }
+
+            .print-button {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 10px auto;
+                display: block;
+                width: fit-content;
+            }
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: none;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            .cv-header::before {
+                display: none;
+            }
+        }
+
+        /* Animation for skill bars */
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: var(--width); }
+        }
+
+        .skill-fill {
+            animation: fillBar 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Print/Save PDF
+    </button>
+
+    <div class="cv-container">
+        <!-- Header -->
+        <div class="cv-header">
+            <div class="header-content">
+                <div class="profile-photo">
+                    MAJ
+                </div>
+                <h1 class="name">Muhammad Abdullahi Jibrin</h1>
+                <p class="title">Web Developer</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        muhammadabdullahijibrin0@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        +234 912 667 5635
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Gombe, Nigeria
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        majibrin.github.io/portfolio
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <div class="cv-body">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Technical Skills -->
+                <div class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-code"></i>
+                        Technical Skills
+                    </h3>
+                    
+                    <div class="skill-category">
+                        <h4>Frontend</h4>
+                        <div class="skill-item">
+                            <span>HTML5</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--width: 90%; width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>CSS3</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--width: 85%; width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--width: 80%; width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Backend</h4>
+                        <div class="skill-item">
+                            <span>PHP</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--width: 85%; width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Python/Django</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--width: 80%; width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>MySQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--width: 75%; width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Design</h4>
+                        <div class="skill-item">
+                            <span>Graphics Design</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--width: 70%; width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-language"></i>
+                        Languages
+                    </h3>
+                    <div class="languages">
+                        <span class="language-tag">English</span>
+                        <span class="language-tag">Hausa</span>
+                        <span class="language-tag">Arabic</span>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        Education
+                    </h3>
+                    
+                    <div class="education-item">
+                        <h4>Bachelor of Computer Science</h4>
+                        <p class="institution">Gombe State University</p>
+                        <p class="year">Level 3 - Current</p>
+                    </div>
+
+                    <div class="education-item">
+                        <h4>Secondary School Certificate</h4>
+                        <p class="institution">Science Secondary School</p>
+                        <p class="year">Completed</p>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-users"></i>
+                        Soft Skills
+                    </h3>
+                    <div class="soft-skills">
+                        <div class="soft-skill">Communication</div>
+                        <div class="soft-skill">Problem Solving</div>
+                        <div class="soft-skill">Creativity</div>
+                        <div class="soft-skill">Teamwork</div>
+                        <div class="soft-skill">Leadership</div>
+                        <div class="soft-skill">Patience</div>
+                        <div class="soft-skill">Attention to Detail</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Professional Summary -->
+                <div class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-user"></i>
+                        Professional Summary
+                    </h3>
+                    <p class="summary">
+                        Passionate and dedicated Web Developer with 4 years of hands-on experience in creating dynamic, responsive web applications. Proficient in HTML, CSS, JavaScript, PHP, MySQL, and Django framework. Combines technical expertise with creative problem-solving skills to deliver innovative solutions. Self-motivated developer who approaches coding as both profession and passion, constantly striving for excellence and continuous improvement. Experienced in building real-time applications, e-learning platforms, and management systems with focus on user experience and functionality.
+                    </p>
+                </div>
+
+                <!-- Key Projects -->
+                <div class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-project-diagram"></i>
+                        Key Projects
+                    </h3>
+
+                    <div class="project">
+                        <h4>Real-time Social Media Platform</h4>
+                        <p class="tech-stack">HTML5 • CSS3 • JavaScript • PHP • MySQL</p>
+                        <p>Developed a comprehensive social media platform featuring real-time messaging, user authentication, post creation with image upload capabilities, story sharing, and user profile management. Implemented responsive design ensuring seamless experience across all devices. The platform supports user interactions including likes, comments, and follows with dynamic content updates.</p>
+                    </div>
+
+                    <div class="project">
+                        <h4>E-Learning Platform for NECO & WAEC Preparation</h4>
+                        <p class="tech-stack">HTML5 • CSS3 • JavaScript • PHP • MySQL</p>
+                        <p>Built a comprehensive educational platform specifically designed for Nigerian secondary school students preparing for NECO and WAEC examinations. Features include extensive digital library with educational materials, user authentication system, progress tracking, and administrative panel for content management. The platform serves as a complete learning management system with course organization and student management capabilities.</p>
+                    </div>
+
+                    <div class="project">
+                        <h4>Student Record Management System</h4>
+                        <p class="tech-stack">Python • Django • HTML5 • CSS3 • JavaScript • MySQL</p>
+                        <p>Developed a robust student information management system using Django framework. The system includes student registration, academic records management, attendance tracking, grade calculation, and comprehensive reporting features. Implemented role-based access control with separate interfaces for administrators, teachers, and students, ensuring secure and efficient data management.</p>
+                    </div>
+                </div>
+
+                <!-- Professional Interests -->
+                <div class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-heart"></i>
+                        Professional Interests
+                    </h3>
+                    <p class="summary">
+                        Web Development • Mobile Application Development • User Interface Design • Database Architecture • Graphics Design • Continuous Learning 
